@@ -2,18 +2,23 @@ package com.arynchoong.ccolour
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.graphics.Color
 import android.util.Size
 import android.graphics.Matrix
 import android.os.Bundle
 import android.view.Surface
 import android.view.TextureView
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.ColorUtils
 import androidx.lifecycle.LifecycleOwner
+import androidx.palette.graphics.Palette
 import java.util.concurrent.Executors
 
 private const val REQUEST_CODE_PERMISSIONS = 10
@@ -26,6 +31,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         setContentView(R.layout.activity_main)
 
         viewFinder = findViewById(R.id.view_finder)
+        textOverlay = findViewById(R.id.text_overlay)
 
         // Request camera permissions
         if (allPermissionsGranted()) {
@@ -43,6 +49,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
 
     private val executor = Executors.newSingleThreadExecutor()
     private lateinit var viewFinder: TextureView
+    private lateinit var textOverlay: TextView
 
     private fun startCamera() {
 
@@ -81,9 +88,6 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         }
 
         // Bind use cases to lifecycle
-        // If Android Studio complains about "this" being not a LifecycleOwner
-        // try rebuilding the project or updating the appcompat dependency to
-        // version 1.1.0 or higher.
         CameraX.bindToLifecycle(this, preview, analyzerUseCase)
     }
 
@@ -132,5 +136,24 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(
             baseContext, it) == PackageManager.PERMISSION_GRANTED
+    }
+
+    private fun setTextColorForImage(textView: TextView, image: Bitmap) {
+        Palette.from(image).generate(Palette.PaletteAsyncListener() {
+            fun onGenerated(palette: Palette) {
+                var swatch = palette.getVibrantSwatch()
+                if (swatch == null && palette.getSwatches().size > 0) {
+                    swatch = palette.getSwatches().get(0)
+                }
+
+                var textColor = Color.WHITE
+                if (swatch != null) {
+                    textColor = swatch.getTitleTextColor()
+                    textColor = ColorUtils.setAlphaComponent(textColor, 255)
+                }
+
+                textView.setTextColor(textColor)
+            }
+        })
     }
 }
