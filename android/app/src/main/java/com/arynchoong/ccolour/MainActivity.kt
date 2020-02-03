@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
 
         // Build the image analysis use case and instantiate our analyzer
         val analyzerUseCase = ImageAnalysis(analyzerConfig).apply {
-            setAnalyzer(executor, ImageAnalyser())
+            setAnalyzer(executor, ImageAnalyser(textOverlay))
         }
 
         // Bind use cases to lifecycle
@@ -136,24 +136,5 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(
             baseContext, it) == PackageManager.PERMISSION_GRANTED
-    }
-
-    private fun setTextColorForImage(textView: TextView, image: Bitmap) {
-        Palette.from(image).generate(Palette.PaletteAsyncListener() {
-            fun onGenerated(palette: Palette) {
-                var swatch = palette.getVibrantSwatch()
-                if (swatch == null && palette.getSwatches().size > 0) {
-                    swatch = palette.getSwatches().get(0)
-                }
-
-                var textColor = Color.WHITE
-                if (swatch != null) {
-                    textColor = swatch.getTitleTextColor()
-                    textColor = ColorUtils.setAlphaComponent(textColor, 255)
-                }
-
-                textView.setTextColor(textColor)
-            }
-        })
     }
 }

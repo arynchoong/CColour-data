@@ -20,15 +20,15 @@
         android:gravity="center"
         android:background="#0000"
         android:id="@+id/overlay">
-
         <TextView
             android:id="@+id/text_overlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:textStyle="bold"
-            android:text="Colour"
-            android:visibility="gone"/>
+            android:textSize="@dimen/label"
+            android:padding="@dimen/label_padding"
+            android:text="Colour" />
     </RelativeLayout>
 
 
