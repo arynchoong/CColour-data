@@ -34,38 +34,43 @@ class ImageAnalyser(private val textOverlay: TextView) : ImageAnalysis.Analyzer 
         // Calculate the average luma no more often than every second
         if (currentTimestamp - lastAnalyzedTimestamp >=
             TimeUnit.SECONDS.toMillis(1)) {
-            // Get region of interest
-            val x1: Int = textOverlay.left
-            val y1: Int = textOverlay.top
-            val w: Int = textOverlay.width
-            val h: Int = textOverlay.height
 
-            val x: Int = (image.width - w) / 2
-            val y: Int = (image.height - h) / 2
-
-            val rect = Rect(x, y, w, h)
-            Log.d("ImageAnalyser", "left: $x1,$x top: $y1,$y width: $w height $h")
-            image.cropRect = rect
-            val roiImage = image.image
-
-            // Update text
-            if (roiImage != null) {
-                if ((roiImage.format == ImageFormat.YUV_420_888) ||
-                    (roiImage.format == ImageFormat.YUV_444_888) ||
-                    (roiImage.format == ImageFormat.YUV_422_888)) {
-                    Log.d("ImageAnalyser", "YUV")
-                    val bmpImage = roiImage.YUVtoBitmap()
-                    setTextColorForImage(bmpImage)
-                } else {
-                    val bmpImage = roiImage.JPEGtoBitmap()
-                    setTextColorForImage(bmpImage)
-                }
-            } else {
-                textOverlay.visibility = TextView.GONE
-            }
+            analyse(image)
 
             // Update timestamp of last analyzed frame
             lastAnalyzedTimestamp = currentTimestamp
+        }
+    }
+
+    fun analyse(image: ImageProxy) {
+        // Get region of interest
+        val x1: Int = textOverlay.left
+        val y1: Int = textOverlay.top
+        val w: Int = textOverlay.width
+        val h: Int = textOverlay.height
+
+        val x: Int = (image.width - w) / 2
+        val y: Int = (image.height - h) / 2
+
+        val rect = Rect(x, y, w, h)
+        Log.d("ImageAnalyser", "left: $x1,$x top: $y1,$y width: $w height $h")
+        image.cropRect = rect
+        val roiImage = image.image
+
+        // Update text
+        if (roiImage != null) {
+            if ((roiImage.format == ImageFormat.YUV_420_888) ||
+                (roiImage.format == ImageFormat.YUV_444_888) ||
+                (roiImage.format == ImageFormat.YUV_422_888)) {
+                Log.d("ImageAnalyser", "YUV")
+                val bmpImage = roiImage.YUVtoBitmap()
+                setTextColorForImage(bmpImage)
+            } else {
+                val bmpImage = roiImage.JPEGtoBitmap()
+                setTextColorForImage(bmpImage)
+            }
+        } else {
+            textOverlay.visibility = TextView.GONE
         }
     }
 
