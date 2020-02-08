@@ -2,4 +2,5 @@
 <resources>
     <dimen name="label">16sp</dimen>
     <dimen name="label_padding">2dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>
