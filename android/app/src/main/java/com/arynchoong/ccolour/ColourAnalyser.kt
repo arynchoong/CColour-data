@@ -63,7 +63,7 @@ class ColourAnalyser {
         colorList.add(ColorName("FloralWhite", 0xFF, 0xFA, 0xF0))
         colorList.add(ColorName("ForestGreen", 0x22, 0x8B, 0x22))
 //        colorList.add(ColorName("Fuchsia", 0xFF, 0x00, 0xFF))
-        colorList.add(ColorName("Gainsboro", 0xDC, 0xDC, 0xDC))
+//        colorList.add(ColorName("Gainsboro", 0xDC, 0xDC, 0xDC))
         colorList.add(ColorName("GhostWhite", 0xF8, 0xF8, 0xFF))
         colorList.add(ColorName("Gold", 0xFF, 0xD7, 0x00))
         colorList.add(ColorName("GoldenRod", 0xDA, 0xA5, 0x20))

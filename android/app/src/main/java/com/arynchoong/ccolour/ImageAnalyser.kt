@@ -3,6 +3,7 @@ package com.arynchoong.ccolour
 import android.graphics.*
 import android.media.Image
 import android.util.Log
+import android.view.TextureView
 import android.widget.TextView
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
@@ -13,10 +14,16 @@ import androidx.palette.graphics.Palette
 import java.io.ByteArrayOutputStream
 import java.nio.ByteBuffer
 import java.util.concurrent.TimeUnit
+import kotlin.math.round
+import kotlin.math.roundToInt
 
 
-class ImageAnalyser(private val textOverlay: TextView) : ImageAnalysis.Analyzer {
+class ImageAnalyser(
+    var textOverlay: TextView,
+    var viewFinder: TextureView
+) : ImageAnalysis.Analyzer {
     private var lastAnalyzedTimestamp = 0L
+
 
     /**
      * Helper extension function used to extract a byte array from an
@@ -44,16 +51,16 @@ class ImageAnalyser(private val textOverlay: TextView) : ImageAnalysis.Analyzer 
 
     fun analyse(image: ImageProxy) {
         // Get region of interest
-        val x1: Int = textOverlay.left
-        val y1: Int = textOverlay.top
-        val w: Int = textOverlay.width
-        val h: Int = textOverlay.height
+        var textOverlayXY : IntArray = intArrayOf(1,1)
+        textOverlay.getLocationOnScreen(textOverlayXY)
+        val x1 = textOverlayXY[0]
+        val y1 = textOverlayXY[1]
+        val w = 20
+        val x: Int = (image.width * x1) / viewFinder.width
+        val y: Int = (image.height * y1) / viewFinder.height
+        Log.d("ImageAnalyser", "left: $x1, $x top: $y1, $y width: $w height $w")
 
-        val x: Int = (image.width - w) / 2
-        val y: Int = (image.height - h) / 2
-
-        val rect = Rect(x, y, w, h)
-        Log.d("ImageAnalyser", "left: $x1,$x top: $y1,$y width: $w height $h")
+        val rect = Rect(x, y, w, w)
         image.cropRect = rect
         val roiImage = image.image
 
@@ -130,3 +137,4 @@ class ImageAnalyser(private val textOverlay: TextView) : ImageAnalysis.Analyzer 
     }
 
 }
+
