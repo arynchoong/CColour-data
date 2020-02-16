@@ -1,8 +1,10 @@
 package com.arynchoong.ccolour
 
+import android.annotation.SuppressLint
 import android.graphics.*
 import android.media.Image
 import android.util.Log
+import android.view.Gravity
 import android.view.TextureView
 import android.widget.TextView
 import androidx.camera.core.ImageAnalysis
@@ -42,46 +44,59 @@ class ImageAnalyser(
         if (currentTimestamp - lastAnalyzedTimestamp >=
             TimeUnit.SECONDS.toMillis(1)) {
 
-            analyse(image)
+             analyse(image, rotationDegrees)
 
             // Update timestamp of last analyzed frame
             lastAnalyzedTimestamp = currentTimestamp
         }
     }
 
-    fun analyse(image: ImageProxy) {
+    fun analyse(image: ImageProxy, rotationDegrees: Int) {
+
         // Get region of interest
         var textOverlayXY : IntArray = intArrayOf(1,1)
-        textOverlay.getLocationOnScreen(textOverlayXY)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q){
+            textOverlay.getLocationInSurface(textOverlayXY)
+        } else{
+            textOverlay.getLocationOnScreen(textOverlayXY)
+        }
         val x1 = textOverlayXY[0]
         val y1 = textOverlayXY[1]
-        val w = 20
-        val x: Int = (image.width * x1) / viewFinder.width
-        val y: Int = (image.height * y1) / viewFinder.height
-        Log.d("ImageAnalyser", "left: $x1, $x top: $y1, $y width: $w height $w")
 
-        val rect = Rect(x, y, w, w)
-        image.cropRect = rect
-        val roiImage = image.image
-
-        // Update text
-        if (roiImage != null) {
-            if ((roiImage.format == ImageFormat.YUV_420_888) ||
-                (roiImage.format == ImageFormat.YUV_444_888) ||
-                (roiImage.format == ImageFormat.YUV_422_888)) {
-                Log.d("ImageAnalyser", "YUV")
-                val bmpImage = roiImage.YUVtoBitmap()
-                setTextColorForImage(bmpImage)
-            } else {
-                val bmpImage = roiImage.JPEGtoBitmap()
-                setTextColorForImage(bmpImage)
-            }
+        Log.d("ImageAnalyser", "rotationDegrees: $rotationDegrees")
+        var x = 0
+        var y = 0
+        if ((rotationDegrees == 90) ) {
+            x = (image.width * x1) / viewFinder.width
+            y = image.height - ((image.height * y1) / viewFinder.height)
+        } else if (rotationDegrees == 180) {
+            x = image.width - ((image.width * x1) / viewFinder.width)
+            y = image.height - ((image.height * y1) / viewFinder.height)
+        } else if (rotationDegrees == 270) {
+            x = image.width - ((image.width * x1) / viewFinder.width)
+            y = (image.height * y1) / viewFinder.height
         } else {
-            textOverlay.visibility = TextView.GONE
+            x = (image.width * x1) / viewFinder.width
+            y = (image.height * y1) / viewFinder.height
+        }
+        val w = 24
+        val h = 24
+        //width: 640,1080height: 480,1798,57
+        Log.d("ImageAnalyser", "x: $x, $x1 y: $y, $y1 w: " + viewFinder.width.toString() + "," + image.width.toString() + " h: " + viewFinder.height.toString() + "," + image.height.toString())
+        val rect = Rect(x, y, x+w, y+h) // left, top, right, bottom
+
+
+        if(image.format == ImageFormat.YUV_420_888) {
+            val bmpImage = image.image?.YUVtoBitmap(rect)
+            bmpImage?.let { setTextColorForImage(it) }
+        } else {
+            val bmpImage = image.image?.JPEGtoBitmap()
+            bmpImage?.let { setTextColorForImage(it) }
         }
     }
 
-    private fun Image.YUVtoBitmap(): Bitmap {
+    private fun Image.YUVtoBitmap(rect: Rect): Bitmap {
+
         val yBuffer = planes[0].buffer // Y
         val uBuffer = planes[1].buffer // U
         val vBuffer = planes[2].buffer // V
@@ -99,16 +114,38 @@ class ImageAnalyser(
 
         val yuvImage = YuvImage(nv21, ImageFormat.NV21, this.width, this.height, null)
         val out = ByteArrayOutputStream()
-        yuvImage.compressToJpeg(Rect(0, 0, yuvImage.width, yuvImage.height), 50, out)
+
+        try {
+            yuvImage.compressToJpeg( rect, 100, out)
+        } catch (e: IllegalArgumentException) {
+            Log.d("ImageAnalyser", "rect l:" + rect.left.toString() +" t:"+ rect.top.toString() + " r:"+rect.right.toString()+" b:"+ rect.bottom.toString()
+                    + " , w:" + yuvImage.width.toString() + " h:" + yuvImage.height.toString())
+            // analyse whole image
+            centerText()
+            yuvImage.compressToJpeg(Rect(0, 0, yuvImage.width, yuvImage.height), 50, out)
+        }
+        if(out.size() <= 0) {
+            // analyse whole image
+            centerText()
+            yuvImage.compressToJpeg(Rect(0, 0, yuvImage.width, yuvImage.height), 50, out)
+        }
+
+        Log.d("YUVtoBitmap", "out: " + out.size().toString() )
         val imageBytes = out.toByteArray()
         return BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
     }
 
     private fun Image.JPEGtoBitmap(): Bitmap {
+        Log.d("ImageAnalyser", "JPEGtoBitmap")
         val buffer: ByteBuffer = planes[0].buffer
         val bytes = ByteArray(buffer.remaining())
         buffer.get(bytes)
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
+    }
+
+    private fun centerText() {
+        textOverlay.x = ((viewFinder.width - textOverlay.width) / 2).toFloat()
+        textOverlay.y = (viewFinder.height - textOverlay.height).toFloat()
     }
 
     val colour = ColourAnalyser()

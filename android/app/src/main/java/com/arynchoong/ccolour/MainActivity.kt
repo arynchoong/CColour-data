@@ -53,10 +53,11 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
                 // Set textOverlay top and left
                 lastTouchDownXY[0] = event.getX()
                 lastTouchDownXY[1] = event.getY()
+
                 textOverlay.x = lastTouchDownXY[0]
                 textOverlay.y = lastTouchDownXY[1]
 
-                Log.d("ImageAnalyser", "x: " + textOverlay.x.toString() + " y: " + textOverlay.y.toString())
+                Log.d("CColour","x: " + textOverlay.x.toString() + " y: " + textOverlay.y.toString())
             }
             false
         }
