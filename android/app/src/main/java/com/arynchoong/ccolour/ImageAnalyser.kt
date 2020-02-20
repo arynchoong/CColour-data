@@ -160,8 +160,8 @@ class ImageAnalyser(
             if (swatch != null) {
                 var textColor = swatch.getTitleTextColor()
                 var bgColor = swatch?.rgb
-                var nameColour = colour.getColorNameFromRgb(swatch.rgb.red,swatch.rgb.green,swatch.rgb.blue)
-
+                //var nameColour = colour.getColorNameFromRgb(swatch.rgb.red,swatch.rgb.green,swatch.rgb.blue)
+                val nameColour = colour.getColorNameFromHsl(swatch?.hsl[0], swatch?.hsl[1], swatch?.hsl[2])
                 Log.d("ImageAnalyser", "Text Color: $textColor, Bg Color: $bgColor, Colour: $nameColour")
                 textOverlay.setTextColor(textColor)
                 textOverlay.setBackgroundColor(bgColor)
