@@ -19,6 +19,8 @@ class ColourAnalyser {
      */
     private fun initGreyColorList(): ArrayList<ColorName> {
         val colorList = ArrayList<ColorName>()
+
+        // Grey
         colorList.add(ColorName("Davy's grey",0x55,0x55,0x55,0.0F,0.0F,0.33F))
         colorList.add(ColorName("Gainsboro",0xDC,0xDC,0xDC,0.0F,0.0F,0.86F))
         colorList.add(ColorName("Light gray",0xD3,0xD3,0xD3,0.0F,0.0F,0.83F))
@@ -62,6 +64,7 @@ class ColourAnalyser {
         colorList.add(ColorName("Artichoke",0x8F,0x97,0x79,76.0F,0.13F,0.53F))
         colorList.add(ColorName("Grullo",0xA9,0x9A,0x86,34.0F,0.17F,0.59F))
 
+        // Black
         colorList.add(ColorName("Black",0x00,0x00,0x00,0.0F,0.0F,0.0F))
         colorList.add(ColorName("Rich black",0x01,0x02,0x03,210.0F,0.5F,0.01F))
         colorList.add(ColorName("Rich black",0x01,0x0B,0x13,207.0F,0.9F,0.04F))
@@ -80,7 +83,7 @@ class ColourAnalyser {
         colorList.add(ColorName("Dark lava",0x48,0x3C,0x32,27.0F,0.18F,0.24F))
         colorList.add(ColorName("Old burgundy",0x43,0x30,0x2E,6.0F,0.19F,0.22F))
 
-
+        // White
         colorList.add(ColorName("White",0xFF,0xFF,0xFF,0.0F,0.0F,1.0F))
         colorList.add(ColorName("Snow",0xFF,0xFA,0xFA,0.0F,1.0F,0.99F))
         colorList.add(ColorName("Ghost white",0xF8,0xF8,0xFF,240.0F,1.0F,0.99F))
@@ -159,7 +162,11 @@ class ColourAnalyser {
             }
             for (c in colorList) {
                 if (c.h == h && c.s == s && c.l == l)
-                    colour = c.name
+                    if (c.name.contains(colour, ignoreCase = true) ) {
+                        colour = c.name
+                    } else {
+                        colour = c.name + "," + colour
+                    }
             }
             Log.d("getColorNameFromHsl", "h:$h, s:$s, l:$l, col:$colour")
             return colour
@@ -174,7 +181,7 @@ class ColourAnalyser {
                     (it.h < (h + 20))  && (it.h > (h - 20))
                 }
             }
-            Log.d("getColorNameFromHsl", "list size:"+ matchList.size.toString() +"(h-20f):" + (h-20f).toString() + "(h-20f+360f):" + (h - 20f + 360f).toString())
+            // Log.d("getColorNameFromHsl", "list size:"+ matchList.size.toString() +"(h-20f):" + (h-20f).toString() + "(h-20f+360f):" + (h - 20f + 360f).toString())
             var closestMatch: ColorName? = null
             var minMSE = Float.MAX_VALUE
             var mse: Float
@@ -187,7 +194,34 @@ class ColourAnalyser {
             }
             Log.d("getColorNameFromHsl", "h:$h, s:$s, l:$l, col:" + closestMatch?.name.toString())
 
-            return closestMatch?.name ?: "No matched color name."
+            var colour = getColorHue(h)
+            if (closestMatch != null) {
+                if ( closestMatch.name.contains(colour, ignoreCase = true) ) {
+                    colour = closestMatch.name
+                } else {
+                    colour = closestMatch.name + "," + colour
+                }
+            }
+
+            return colour
+        }
+    }
+
+    fun getColorHue(h: Float): String {
+        if (h < 30) {
+            return "Red"
+        } else if (h < 42) {
+            return "Orange"
+        } else if (h < 65) {
+            return "Yellow"
+        } else if (h < 160) {
+            return "Green"
+        } else if (h < 267) {
+            return "Blue"
+        } else if (h < 310) {
+            return "Purple"
+        } else {
+            return "Red"
         }
     }
 
