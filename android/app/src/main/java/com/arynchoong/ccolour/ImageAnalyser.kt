@@ -1,28 +1,21 @@
 package com.arynchoong.ccolour
 
-import android.annotation.SuppressLint
 import android.graphics.*
 import android.media.Image
 import android.util.Log
-import android.view.Gravity
-import android.view.TextureView
+import android.util.Size
 import android.widget.TextView
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
-import androidx.core.graphics.blue
-import androidx.core.graphics.green
-import androidx.core.graphics.red
 import androidx.palette.graphics.Palette
 import java.io.ByteArrayOutputStream
 import java.nio.ByteBuffer
 import java.util.concurrent.TimeUnit
-import kotlin.math.round
-import kotlin.math.roundToInt
 
 
 class ImageAnalyser(
     var textOverlay: TextView,
-    var viewFinder: TextureView
+    var previewSize: Size
 ) : ImageAnalysis.Analyzer {
     private var lastAnalyzedTimestamp = 0L
 
@@ -67,22 +60,22 @@ class ImageAnalyser(
         var x = 0
         var y = 0
         if ((rotationDegrees == 90) ) {
-            x = (image.width * x1) / viewFinder.width
-            y = image.height - ((image.height * y1) / viewFinder.height)
+            x = ((image.width * y1) / previewSize.height)
+            y = image.height - (image.height * x1) / previewSize.width
         } else if (rotationDegrees == 180) {
-            x = image.width - ((image.width * x1) / viewFinder.width)
-            y = image.height - ((image.height * y1) / viewFinder.height)
+            x = image.width - ((image.width * x1) / previewSize.width)
+            y = image.height - ((image.width * y1) / previewSize.width)
         } else if (rotationDegrees == 270) {
-            x = image.width - ((image.width * x1) / viewFinder.width)
-            y = (image.height * y1) / viewFinder.height
+            x = image.width - ((image.width * y1) / previewSize.height)
+            y = (image.height * x1) / previewSize.width
         } else {
-            x = (image.width * x1) / viewFinder.width
-            y = (image.height * y1) / viewFinder.height
+            x = (image.width * x1) / previewSize.width
+            y = (image.width * y1) / previewSize.width
         }
         val w = 24
         val h = 24
         //width: 640,1080height: 480,1798,57
-        Log.d("ImageAnalyser", "x: $x, $x1 y: $y, $y1 w: " + viewFinder.width.toString() + "," + image.width.toString() + " h: " + viewFinder.height.toString() + "," + image.height.toString())
+        Log.d("ImageAnalyser", "x: $x, $x1 y: $y, $y1 w: " + previewSize.width.toString() + "," + image.width.toString() + " h: " + previewSize.height.toString() + "," + image.height.toString())
         val rect = Rect(x, y, x+w, y+h) // left, top, right, bottom
 
 
@@ -144,8 +137,8 @@ class ImageAnalyser(
     }
 
     private fun centerText() {
-        textOverlay.x = ((viewFinder.width - textOverlay.width) / 2).toFloat()
-        textOverlay.y = (viewFinder.height - textOverlay.height).toFloat()
+        textOverlay.x = ((previewSize.width - textOverlay.width) / 2).toFloat()
+        textOverlay.y = (previewSize.height - textOverlay.height).toFloat()
     }
 
     val colour = ColourAnalyser()

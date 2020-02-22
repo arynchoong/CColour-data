@@ -6,10 +6,7 @@ import android.graphics.*
 import android.os.Bundle
 import android.util.Log
 import android.util.Size
-import android.view.MotionEvent
-import android.view.Surface
-import android.view.TextureView
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -100,7 +97,9 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
 
         // Build the image analysis use case and instantiate our analyzer
         analyzerUseCase = ImageAnalysis(analyzerConfig).apply {
-            setAnalyzer(executor, ImageAnalyser(textOverlay, viewFinder ))
+            viewFinder.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+            val previewSize = Size(viewFinder.width, viewFinder.height)
+            setAnalyzer(executor, ImageAnalyser(textOverlay, previewSize))
         }
 
         // Bind use cases to lifecycle
