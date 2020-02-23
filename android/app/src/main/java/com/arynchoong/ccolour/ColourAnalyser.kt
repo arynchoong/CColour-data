@@ -615,7 +615,6 @@ class ColourAnalyser {
         colorList.add(ColorName("Mountain Meadow",0x30,0xBA,0x8F,161.0F,0.59F,0.46F))
         colorList.add(ColorName("Brunswick green",0x1B,0x4D,0x3E,162.0F,0.48F,0.2F))
         colorList.add(ColorName("Spanish viridian",0x00,0x7F,0x5C,163.0F,1.0F,0.25F))
-        colorList.add(ColorName("Hooker's green",0x49,0x79,0x6B,163.0F,0.25F,0.38F))
         colorList.add(ColorName("Green",0x00,0xA8,0x77,163.0F,1.0F,0.33F))
         colorList.add(ColorName("Jungle green",0x29,0xAB,0x87,163.0F,0.61F,0.42F))
         colorList.add(ColorName("Castleton green",0x00,0x56,0x3F,164.0F,1.0F,0.17F))
@@ -750,7 +749,7 @@ class ColourAnalyser {
         colorList.add(ColorName("Royal blue",0x00,0x23,0x66,219.0F,1.0F,0.2F))
         colorList.add(ColorName("YInMn Blue",0x2E,0x50,0x90,219.0F,0.52F,0.37F))
         colorList.add(ColorName("Cadet blue",0xA9,0xB2,0xC3,219.0F,0.18F,0.71F))
-        colorList.add(ColorName("UA blue",0x00,0x33,0xAA,222.0F,1.0F,0.33F))
+        colorList.add(ColorName("Blue",0x00,0x33,0xAA,222.0F,1.0F,0.33F))
         colorList.add(ColorName("Dark cornflower blue",0x26,0x42,0x8B,223.0F,0.57F,0.35F))
         colorList.add(ColorName("Periwinkle",0xC3,0xCD,0xE6,223.0F,0.41F,0.83F))
         colorList.add(ColorName("International Klein Blue",0x00,0x2F,0xA7,223.0F,1.0F,0.33F))
@@ -808,7 +807,7 @@ class ColourAnalyser {
         colorList.add(ColorName("Cyber grape",0x58,0x42,0x7C,263.0F,0.31F,0.37F))
         colorList.add(ColorName("Spanish violet",0x4C,0x28,0x82,264.0F,0.53F,0.33F))
         colorList.add(ColorName("Electric indigo",0x6F,0x00,0xFF,266.0F,1.0F,0.5F))
-        colorList.add(ColorName("KSU purple",0x51,0x28,0x88,266.0F,0.55F,0.33F))
+        colorList.add(ColorName("Purple",0x51,0x28,0x88,266.0F,0.55F,0.33F))
         colorList.add(ColorName("Indigo",0x4B,0x00,0x82,266.0F,1.0F,0.26F))
         colorList.add(ColorName("Royal purple",0x78,0x51,0xA9,267.0F,0.35F,0.49F))
         colorList.add(ColorName("Purple mountain majesty",0x96,0x78,0xB6,269.0F,0.3F,0.59F))
@@ -952,7 +951,7 @@ class ColourAnalyser {
         colorList.add(ColorName("Cyclamen",0xF5,0x6F,0xA1,338.0F,0.87F,0.7F))
         colorList.add(ColorName("Ruber",0xCE,0x46,0x76,339.0F,0.58F,0.54F))
         colorList.add(ColorName("French pink",0xFD,0x6C,0x9E,339.0F,0.97F,0.71F))
-        colorList.add(ColorName("UA red",0xD9,0x00,0x4C,339.0F,1.0F,0.43F))
+        colorList.add(ColorName("Red",0xD9,0x00,0x4C,339.0F,1.0F,0.43F))
         colorList.add(ColorName("Nadeshiko pink",0xF6,0xAD,0xC6,339.0F,0.8F,0.82F))
         colorList.add(ColorName("Rose red",0xC2,0x1E,0x56,340.0F,0.73F,0.44F))
         colorList.add(ColorName("China rose",0xA8,0x51,0x6E,340.0F,0.35F,0.49F))
@@ -1033,7 +1032,6 @@ class ColourAnalyser {
         colorList.add(ColorName("Old rose",0xC0,0x80,0x81,359.0F,0.34F,0.63F))
         colorList.add(ColorName("Bittersweet shimmer",0xBF,0x4F,0x51,359.0F,0.47F,0.53F))
         colorList.add(ColorName("UP maroon",0x7B,0x11,0x13,359.0F,0.76F,0.27F))
-        colorList.add(ColorName("OU Crimson red",0x84,0x16,0x17,360.0F,0.71F,0.3F))
         return colorList
     }
 
