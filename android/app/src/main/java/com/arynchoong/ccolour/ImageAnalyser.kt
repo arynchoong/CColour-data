@@ -7,6 +7,9 @@ import android.util.Size
 import android.widget.TextView
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
+import androidx.core.graphics.blue
+import androidx.core.graphics.green
+import androidx.core.graphics.red
 import androidx.palette.graphics.Palette
 import java.io.ByteArrayOutputStream
 import java.nio.ByteBuffer
@@ -154,7 +157,8 @@ class ImageAnalyser(
                 var textColor = swatch.getTitleTextColor()
                 var bgColor = swatch?.rgb
                 //var nameColour = colour.getColorNameFromRgb(swatch.rgb.red,swatch.rgb.green,swatch.rgb.blue)
-                val nameColour = colour.getColorNameFromHsl(swatch?.hsl[0], swatch?.hsl[1], swatch?.hsl[2])
+                //val nameColour = colour.getColorNameFromHsl(swatch?.hsl[0], swatch?.hsl[1], swatch?.hsl[2])
+                val nameColour = colour.getColourName(bgColor.red, bgColor.green, bgColor.blue, swatch?.hsl)
                 Log.d("ImageAnalyser", "Text Color: $textColor, Bg Color: $bgColor, Colour: $nameColour")
                 textOverlay.setTextColor(textColor)
                 textOverlay.setBackgroundColor(bgColor)

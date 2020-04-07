@@ -15,6 +15,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LifecycleOwner
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import java.util.concurrent.Executors
 
 
@@ -59,6 +60,8 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
             false
         }
 
+        Snackbar.make(viewFinder, "Tap screen for colour name.", Snackbar.LENGTH_LONG )
+            .setAction("Action", null).show()
     }
 
     private val executor = Executors.newSingleThreadExecutor()

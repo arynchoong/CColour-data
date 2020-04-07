@@ -1,0 +1,396 @@
+Desc2,Hue,Sat,Lum
+Black,0.0,0.0,0.0
+Black,50.0,0.0,0.0
+Black,26.7,29.7,9.9
+Black,65.0,32.6,11.3
+Black,100.0,0.0,0.0
+Blue,56.5,100.0,48.2
+Blue-purple,75.4,100.0,50.0
+Blue-violet,68.8,100.0,50.0
+Blueish white,62.2,100.0,97.9
+Blueish white,64.4,100.0,98.2
+Bright blue,59.1,77.4,55.7
+Bright blue,61.6,80.3,56.1
+Bright cyan,50.7,75.4,57.1
+Bright green,23.6,89.1,58.4
+Bright orange,6.6,83.2,55.9
+Bright pink,92.7,84.6,57.2
+Bright purple,83.9,82.2,57.1
+Bright red,1.1,79.0,55.2
+Bright red,97.2,75.3,53.3
+Bright violet,75.4,75.1,55.1
+Bright yellow,16.8,96.2,56.1
+Brown,7.2,62.3,48.4
+Brown,80.3,36.4,53.7
+Cyan,50.9,100.0,46.7
+Cyan tint white,50.8,100.0,95.3
+Dark blue,60.9,88.6,31.7
+Dark blue,63.3,87.8,31.5
+Dark bluish grey,57.2,18.2,39.8
+Dark brown,4.6,72.7,32.9
+Dark brown,97.2,69.9,33.9
+Dark cyan,49.8,93.8,28.6
+Dark green,24.9,82.4,31.0
+Dark grey,0.0,0.0,52.7
+Dark greyish blue,62.9,11.4,58.5
+Dark greyish blue,64.9,11.6,58.8
+Dark greyish blue-purple,71.4,19.0,38.2
+Dark greyish brown,3.3,20.3,52.2
+Dark greyish cyan,48.5,10.2,49.9
+Dark greyish green,24.6,13.3,48.9
+Dark greyish green-cyan,41.3,13.8,50.6
+Dark greyish lime green,34.9,3.8,48.5
+Dark greyish orange,6.9,12.0,50.7
+Dark greyish pink,90.8,12.4,54.4
+Dark greyish purple,84.3,10.1,56.0
+Dark greyish red,4.5,15.7,52.7
+Dark greyish red,98.1,9.6,51.2
+Dark greyish violet,77.6,9.7,49.3
+Dark greyish yellow,14.6,5.2,49.9
+Dark greyish yellow,15.9,4.0,51.0
+Dark lime green,38.7,86.8,32.8
+Dark medium red,97.1,47.9,35.0
+Dark moderate blue,60.6,42.8,41.8
+Dark moderate blue,63.6,43.1,41.0
+Dark moderate blue-purple,71.4,49.2,37.1
+Dark moderate brown,6.3,43.8,43.8
+Dark moderate cyan,50.6,45.5,38.1
+Dark moderate green,24.2,42.3,43.7
+Dark moderate lime green,32.3,38.7,39.5
+Dark moderate pink,94.3,43.9,45.0
+Dark moderate pink-red,96.9,31.5,51.4
+Dark moderate purple,69.7,45.5,41.9
+Dark moderate purple,78.0,41.9,43.3
+Dark moderate red,1.3,39.3,47.3
+Dark moderate red,99.2,40.7,43.0
+Dark moderate violet,71.9,29.9,49.2
+Dark moderate violet,73.4,33.8,47.6
+Dark moderate yellow,12.8,33.9,45.7
+Dark moderate yellow-green,18.9,46.7,44.1
+Dark olive,16.1,100.0,22.5
+Dark pink,91.8,74.6,37.6
+Dark pink-red,94.0,87.5,34.4
+Dark purple,82.6,92.0,30.3
+Dark red,0.5,66.2,39.7
+Dark red,97.7,81.5,34.4
+Dark violet,71.7,74.3,27.5
+Dark violet,73.5,76.1,29.7
+Dark yellow brown,11.1,47.4,42.0
+Dark yellow-green,17.4,84.5,32.2
+Dark yellow-olive,13.6,95.2,33.3
+Green,25.3,100.0,49.3
+Green-cyan,43.9,100.0,46.8
+Grey,21.9,4.0,70.9
+Grey,43.8,8.1,73.2
+Grey brown,10.4,25.6,45.1
+Grey yellow,11.9,26.1,41.4
+Grey-green,27.5,1.9,68.8
+Greyish blue,63.1,28.3,67.0
+Greyish blue,65.5,29.2,67.6
+Greyish brown,21.7,28.2,61.7
+Greyish brown,36.7,22.3,61.9
+Greyish cyan,48.0,30.8,74.2
+Greyish dark blue,63.3,26.4,43.0
+Greyish dark blue,64.4,25.3,41.7
+Greyish dark blue-purple,66.9,21.2,52.6
+Greyish dark brown,6.9,23.2,47.1
+Greyish dark cyan,48.7,24.5,50.0
+Greyish dark cyan-blue,57.6,24.1,54.9
+Greyish dark green,31.8,22.4,52.9
+Greyish dark green-cyan,41.5,25.3,53.9
+Greyish dark lime green,31.7,18.7,48.4
+Greyish dark pink,94.2,22.5,49.7
+Greyish dark pink-red,97.8,16.7,45.0
+Greyish dark purple,85.0,21.9,48.0
+Greyish dark red,0.0,26.5,38.4
+Greyish dark violet,76.4,23.5,52.6
+Greyish dark yellow,13.1,23.6,43.1
+Greyish dark yellow,13.3,22.0,42.7
+Greyish dark yellow-green,41.4,25.6,48.7
+Greyish green,27.9,30.2,62.2
+Greyish green-cyan,43.1,24.2,65.8
+Greyish lime green,34.0,34.1,62.6
+Greyish orange,7.1,25.7,68.4
+Greyish pink,92.7,34.9,65.4
+Greyish pink-red,97.3,38.7,62.6
+Greyish purple,85.8,33.6,66.3
+Greyish red,0.9,21.2,70.1
+Greyish red,97.8,17.8,67.8
+Greyish violet,74.6,28.2,63.1
+Greyish white,0.0,0.0,96.7
+Greyish yellow,14.7,31.1,62.5
+Greyish yellow,15.6,33.0,63.0
+Greyish yellow brown,11.7,36.4,58.0
+Greyish yellow-green,17.9,42.8,60.6
+Light brown,9.3,75.0,81.3
+Light grey,12.6,6.3,85.4
+Light grey,23.6,11.9,88.4
+Light greyish blue,60.8,41.8,83.1
+Light greyish blue,63.5,49.9,83.6
+Light greyish brown,9.8,44.2,86.9
+Light greyish cyan,52.7,37.8,88.1
+Light greyish green,21.9,48.2,82.8
+Light greyish green-cyan,43.9,29.7,82.5
+Light greyish pink,93.8,66.1,89.1
+Light greyish purple,66.4,54.7,88.8
+Light greyish purple,70.1,50.9,88.0
+Light greyish red,1.3,34.0,87.5
+Light greyish red,97.2,31.3,80.6
+Light greyish violet,75.4,42.0,85.5
+Light greyish yellow,14.9,44.1,84.5
+Light greyish yellow,15.4,47.8,84.1
+Light lime green,32.3,100.0,68.2
+Light magenta,83.3,100.0,70.0
+Light orange,7.2,90.9,70.0
+Light pink,91.1,100.0,66.0
+Light red,1.8,90.7,71.0
+Light red,97.3,100.0,63.8
+Light red-orange,3.1,85.5,75.7
+Light violet,72.2,100.0,70.0
+Light yellow,16.1,100.0,67.8
+Light yellow-green,17.7,83.8,78.7
+Lime-green,34.4,100.0,50.0
+Medium brown,7.4,71.3,45.0
+Medium dark blue-purple,68.9,94.6,36.1
+Medium dark blue-purple,70.6,74.6,36.0
+medium dark brown,4.7,42.1,35.9
+Medium dark brown,6.3,53.8,33.8
+Medium dark cyan,55.1,100.0,36.6
+Medium dark cyan-blue,56.9,97.1,37.5
+Medium dark green,40.5,67.6,33.2
+Medium dark green-cyan,43.1,40.5,36.6
+Medium dark greyish brown,7.2,24.4,37.8
+Medium dark pink,92.0,59.6,34.2
+Medium dark purple,82.5,44.3,36.3
+Medium dark red,0.5,89.9,30.8
+Medium dark red-orange,4.9,95.3,37.8
+Medium dark yellow,14.4,42.5,36.8
+Medium dark yellow-brown,11.7,87.4,33.4
+Medium dark yellow-green,18.8,42.3,37.5
+Medium greyish blue,62.8,35.6,65.4
+Medium greyish blue,63.6,35.3,63.4
+Medium greyish cyan,57.0,44.1,64.8
+Medium greyish green-cyan,41.2,41.6,68.4
+Medium greyish purple,69.4,43.5,64.0
+Medium greyish purple,71.2,43.7,64.5
+Medium light blue,65.3,100.0,66.9
+Medium light brown,9.2,83.6,60.8
+Medium light cyan-blue,58.3,50.0,60.0
+Medium light green-cyan,44.4,50.7,60.2
+Medium light greyish brown,6.9,23.0,60.8
+Medium light pink,92.6,56.4,71.3
+Medium light pink-red,0.6,95.8,62.9
+Medium light pink-red,97.6,98.5,61.8
+Medium light red,2.0,72.3,66.1
+Medium light red,98.0,55.9,72.0
+Medium light yellow,14.2,87.9,68.5
+Medium light yellow,14.4,87.0,68.9
+Medium light yellow-green,19.8,59.9,69.9
+Medium soft blue,58.3,80.2,67.4
+Moderate blue,62.2,51.9,55.5
+Moderate blue-purple,68.5,52.4,54.1
+Moderate brown,7.9,45.0,48.4
+Moderate cyan,50.7,53.2,51.9
+Moderate cyan-blue,57.7,50.0,52.0
+Moderate dark brown,3.4,75.8,32.8
+Moderate green,27.2,50.2,48.8
+Moderate green-cyan,41.8,54.7,50.8
+Moderate lime green,33.3,55.0,45.3
+Moderate pink,93.8,55.3,51.1
+Moderate purple,83.1,54.9,51.6
+Moderate red,1.6,50.7,53.9
+Moderate red,98.3,54.9,52.4
+Moderate violet,77.7,47.1,56.5
+Moderate yellow,13.8,55.2,52.5
+Moderate yellow,14.1,54.6,52.1
+Moderate yellow-green,19.4,54.0,52.2
+Orange,8.2,100.0,49.5
+Orange brown,6.7,60.4,59.4
+Orange yellow,11.9,80.6,56.3
+Pale blue,54.7,100.0,81.4
+Pale cyan,51.5,100.0,85.6
+Pale magenta,81.7,100.0,86.7
+Pale orange,8.9,100.0,84.0
+Pale pink,1.5,100.0,92.0
+Pale pink,92.3,100.0,84.3
+Pale red,97.1,100.0,85.8
+Pale red-pink,2.2,100.0,82.7
+Pale violet,76.7,100.0,84.5
+Pale yellow,16.9,100.0,81.7
+Pink,90.2,100.0,48.3
+Pink-red,95.4,91.7,51.3
+Pinkish white,90.7,100.0,97.7
+Purple,80.0,100.0,49.8
+Purple-pink,90.2,52.4,52.1
+Purplish white,72.5,100.0,97.8
+Red,0.9,100.0,48.2
+Red,97.2,100.0,47.2
+Red-orange,4.1,79.0,51.3
+Reddish white,2.0,100.0,96.6
+Soft blue,57.0,92.3,72.8
+Soft blue-purple,69.3,77.7,64.6
+Soft brown,6.1,74.6,65.4
+Soft cyan,52.4,70.0,69.1
+Soft green,21.8,74.0,63.9
+Soft lime green,38.4,66.2,65.1
+Soft orange,7.3,82.7,67.8
+Soft pink,5.3,62.7,65.3
+Soft pink,93.7,80.5,64.9
+Soft pink-purple,87.5,75.6,67.8
+Soft purple,84.6,83.6,69.8
+Soft red,1.5,87.6,67.7
+Soft red,97.6,84.2,68.4
+Soft red-brown,1.5,67.6,57.6
+Soft red-orange,5.0,82.1,64.6
+Soft violet,75.5,78.4,67.7
+Soft yellow,14.1,87.9,68.3
+Soft yellow,14.7,88.5,68.9
+Soft yellow-green,18.1,75.4,62.7
+Strong blue,62.7,69.4,43.9
+Strong blue,63.2,71.7,43.0
+Strong blue-purple,68.5,94.5,41.3
+Strong brown,8.3,73.9,44.9
+Strong cyan,52.7,82.2,43.9
+Strong cyan-blue,58.3,81.3,44.5
+Strong dark blue,60.5,95.0,37.7
+Strong dark cyan,50.8,96.7,38.9
+Strong dark pink,89.9,75.5,44.8
+Strong dark purple,81.7,100.0,38.4
+Strong dark red,0.8,87.9,38.8
+Strong dark red,96.5,97.9,38.0
+Strong dark yellow brown,13.6,82.5,41.4
+Strong dark yellow brown,13.7,80.0,41.6
+Strong dark yellow-green,20.3,95.6,37.8
+Strong green,25.9,87.0,40.8
+Strong green-cyan,36.7,90.5,39.5
+Strong lime green,33.3,60.8,50.0
+Strong pink,94.2,84.9,44.0
+Strong purple,84.8,82.9,44.0
+Strong red,97.8,78.7,44.3
+Strong red-brown,0.7,71.4,44.7
+Strong red-orange,4.7,89.7,42.0
+Strong violet,78.4,83.7,43.3
+Strong yellow-green,19.9,78.2,44.9
+Very dark blue,60.9,83.1,20.4
+Very dark blue,62.9,76.0,21.1
+Very dark brown,8.6,54.8,21.8
+Very dark cyan,49.8,89.5,16.0
+Very dark green,39.6,80.5,19.3
+Very dark grey,0.0,0.0,30.1
+Very dark grey blue,62.0,31.0,26.6
+Very dark grey blue,64.3,31.3,29.0
+Very dark grey cyan,49.9,28.1,23.9
+Very dark grey green,35.0,32.2,25.7
+Very dark grey pink,91.4,30.4,29.7
+Very dark grey purple,82.9,30.2,25.8
+Very dark grey red,2.2,30.7,23.0
+Very dark grey red,97.7,33.3,26.9
+Very dark grey violet,70.8,30.1,28.0
+Very dark grey violet,72.4,28.1,29.9
+Very dark grey yellow,14.9,33.8,25.8
+Very dark grey yellow,16.3,35.3,27.2
+Very dark greyish blue,57.7,14.8,30.6
+Very dark greyish blue,61.5,16.3,32.1
+Very dark greyish cyan,51.1,13.4,27.4
+Very dark greyish green,24.8,12.4,27.1
+Very dark greyish lime,40.4,15.0,23.1
+Very dark greyish lime green,33.4,10.9,28.3
+Very dark greyish magenta,3.6,8.7,40.8
+Very dark greyish magenta,84.4,13.9,31.3
+Very dark greyish orange,38.8,7.6,36.8
+Very dark greyish orange,70.0,1.3,43.7
+Very dark greyish pink,91.7,16.7,30.9
+Very dark greyish red,3.1,16.6,28.0
+Very dark greyish red,94.5,13.2,27.3
+Very dark greyish violet,76.2,17.9,28.8
+Very dark greyish yellow,15.5,12.7,29.4
+Very dark greyish yellow,16.6,12.8,28.4
+Very dark lime green,32.4,93.2,20.0
+Very dark olive,14.9,72.9,21.7
+Very dark olive,15.8,68.5,22.4
+Very dark pink,92.4,73.8,20.7
+Very dark purple,84.7,80.8,20.0
+Very dark red,1.7,63.3,23.3
+Very dark red,97.6,82.3,19.3
+Very dark violet,75.2,74.7,19.7
+Very light blue-purple,67.1,100.0,83.2
+Very light brown,8.7,49.3,89.5
+Very light cyan,50.8,100.0,74.5
+Very light cyan-blue,59.2,100.0,74.7
+Very light cyan-green,44.4,100.0,74.9
+Very light green,29.2,100.0,74.9
+Very light green-cyan,41.9,100.0,89.4
+Very light grey,33.6,12.3,91.2
+Very light grey,66.1,21.3,92.5
+Very light greyish blue,62.2,28.1,93.5
+Very light greyish brown,9.6,56.0,94.4
+Very light greyish cyan,45.8,47.0,94.0
+Very light greyish purple,68.1,70.9,98.0
+Very light greyish purple,76.4,70.0,96.3
+Very light greyish yellow,14.0,44.9,90.5
+Very light greyish yellow,14.5,49.5,90.6
+Very light lime green,33.3,100.0,79.8
+Very light orange,6.8,100.0,75.2
+Very light pink,92.2,100.0,76.3
+Very light pink-red,0.8,82.8,88.6
+Very light pink-red,98.6,78.3,89.9
+Very light purple,82.2,88.2,78.8
+Very light red,1.8,89.5,81.7
+Very light red,98.8,100.0,76.7
+Very light violet,75.0,100.0,80.0
+Very light yellow,13.7,86.8,80.7
+Very light yellow,14.2,92.3,80.2
+Very light yellow-green,19.7,93.2,88.4
+Very pale cyan,48.3,100.0,93.4
+Very pale green,26.9,100.0,92.7
+Very pale orange,8.3,100.0,91.0
+Very pale pink,5.0,100.0,93.3
+Very pale pink,91.7,100.0,91.0
+Very pale purple,84.7,100.0,90.7
+Very pale red,97.0,100.0,90.0
+Very pale violet,70.8,100.0,90.8
+Very pale yellow,15.3,100.0,91.5
+Very pale yellow,16.3,100.0,91.4
+Very soft blue,60.8,62.8,76.3
+Very soft blue,63.9,59.9,76.4
+Very soft brown,8.2,65.4,74.1
+Very soft cyan,50.6,59.0,77.3
+Very soft green,25.6,70.8,78.6
+Very soft green-cyan,40.9,61.4,77.0
+Very soft lime green,33.1,63.8,76.2
+Very soft magenta,83.0,67.6,77.2
+Very soft orange,11.9,81.7,83.6
+Very soft orange,13.9,90.1,84.1
+Very soft pink,92.5,74.0,80.7
+Very soft red,97.8,72.1,76.9
+Very soft violet,71.9,80.6,85.9
+Very soft violet,73.5,68.6,81.1
+Very soft yellow,14.2,73.7,78.9
+Violet,73.6,100.0,50.0
+Vivid blue,59.4,95.2,54.1
+Vivid blue,63.0,91.4,53.3
+Vivid brown,9.9,92.6,52.2
+Vivid cyan,50.1,92.0,51.5
+Vivid green,24.7,100.0,58.7
+Vivid green-cyan,38.9,90.4,44.9
+Vivid lime green,30.8,100.0,53.9
+Vivid orange,5.7,96.4,52.7
+Vivid pink,90.8,91.1,51.9
+Vivid purple,82.8,89.9,51.3
+Vivid red,2.3,90.4,52.2
+Vivid red,97.6,90.1,51.4
+Vivid violet,70.8,95.8,53.7
+Vivid violet,72.6,95.0,53.7
+Vivid yellow,14.3,97.2,52.0
+Vivid yellow,14.9,97.2,52.1
+Vivid yellow-green,19.3,92.0,49.5
+White,20.8,91.3,97.6
+White,34.9,95.8,97.6
+White,100.0,100.0,100.0
+White,50.0,100.0,100.0
+White,0.0,100.0,100.0
+Yellow,14.0,95.1,51.2
+Yellow,14.7,95.5,50.9
+Yellow brown,11.9,59.1,50.2
+Yellow-green,19.3,93.0,51.7
+Yellowish brown,11.8,74.6,43.8
