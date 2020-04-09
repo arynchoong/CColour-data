@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.util.Size
 import android.view.*
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         viewFinder = findViewById(R.id.view_finder)
         textOverlay = findViewById(R.id.text_overlay)
         fab = findViewById(R.id.fab)
+        imageView = findViewById(R.id.imgFocus)
 
         // Request camera permissions
         if (allPermissionsGranted()) {
@@ -52,8 +54,11 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
                 lastTouchDownXY[0] = event.getX()
                 lastTouchDownXY[1] = event.getY()
 
-                textOverlay.x = lastTouchDownXY[0]
-                textOverlay.y = lastTouchDownXY[1]
+                textOverlay.x = lastTouchDownXY[0] - 48
+                textOverlay.y = lastTouchDownXY[1] + 48
+                imageView.x = lastTouchDownXY[0] - 48
+                imageView.y = lastTouchDownXY[1]
+                imageView.visibility = ImageView.VISIBLE
 
                 Log.d("CColour","x: " + textOverlay.x.toString() + " y: " + textOverlay.y.toString())
             }
@@ -68,6 +73,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
     private lateinit var viewFinder: TextureView
     private lateinit var textOverlay: TextView
     private lateinit var fab: FloatingActionButton
+    private lateinit var imageView: ImageView
     lateinit var analyzerUseCase: ImageAnalysis
     var lastTouchDownXY = FloatArray(2)
 
@@ -102,7 +108,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         analyzerUseCase = ImageAnalysis(analyzerConfig).apply {
             viewFinder.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
             val previewSize = Size(viewFinder.width, viewFinder.height)
-            setAnalyzer(executor, ImageAnalyser(textOverlay, previewSize))
+            setAnalyzer(executor, ImageAnalyser(textOverlay, previewSize, lastTouchDownXY))
         }
 
         // Bind use cases to lifecycle

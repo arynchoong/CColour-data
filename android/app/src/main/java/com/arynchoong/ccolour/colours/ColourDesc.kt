@@ -6,6 +6,7 @@ class ColourDesc() : Colour(){
      */
     init {
         // Descriptive colours
+        colourList.add(ColorName("Light olive", 0xb8, 0xb0, 0x38, 56F, 53.3F, 47.1F, 69.6F, 72.2F))
         colourList.add(ColorName("Black",0x00,0x00,0x00,0.0F,0.000F,0.000F,0.000F,0.000F))
         colourList.add(ColorName("Bright blue",0x41,0x69,0xe1,225.0F,0.727F,0.569F,0.711F,0.882F))
         colourList.add(ColorName("Bright blue",0x45,0xb1,0xe8,200.0F,0.780F,0.590F,0.703F,0.910F))

@@ -38,6 +38,13 @@
             android:src="@drawable/ic_inspect_off"
             android:visibility="gone"
             android:contentDescription="Turn Inspect Off"/>
+
+        <ImageView
+            android:id="@+id/imgFocus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:srcCompat="@drawable/ic_crop_free_black_24dp" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 

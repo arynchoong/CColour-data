@@ -18,10 +18,11 @@ import java.util.concurrent.TimeUnit
 
 class ImageAnalyser(
     var textOverlay: TextView,
-    var previewSize: Size
+    var previewSize: Size,
+    val touchCoords: FloatArray
 ) : ImageAnalysis.Analyzer {
     private var lastAnalyzedTimestamp = 0L
-
+    private var lastTouchCoords = FloatArray(2)
 
     /**
      * Helper extension function used to extract a byte array from an
@@ -36,6 +37,10 @@ class ImageAnalyser(
 
     override fun analyze(image: ImageProxy, rotationDegrees: Int) {
         val currentTimestamp = System.currentTimeMillis()
+        if (lastTouchCoords != touchCoords) {
+            lastTouchCoords = touchCoords
+            lastAnalyzedTimestamp = 0L
+        }
         // Calculate the average luma no more often than every second
         if (currentTimestamp - lastAnalyzedTimestamp >=
             TimeUnit.SECONDS.toMillis(1)) {
@@ -50,30 +55,24 @@ class ImageAnalyser(
     fun analyse(image: ImageProxy, rotationDegrees: Int) {
 
         // Get region of interest
-        var textOverlayXY : IntArray = intArrayOf(1,1)
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q){
-            textOverlay.getLocationInSurface(textOverlayXY)
-        } else{
-            textOverlay.getLocationOnScreen(textOverlayXY)
-        }
-        val x1 = textOverlayXY[0]
-        val y1 = textOverlayXY[1]
+        val x1 = touchCoords[0]
+        val y1 = touchCoords[1]
 
         Log.d("ImageAnalyser", "rotationDegrees: $rotationDegrees")
         var x = 0
         var y = 0
         if ((rotationDegrees == 90) ) {
-            x = ((image.width * y1) / previewSize.height)
-            y = image.height - (image.height * x1) / previewSize.width
+            x = (((image.width * y1) / previewSize.height).toInt())
+            y = (image.height - (image.height * x1) / previewSize.width).toInt()
         } else if (rotationDegrees == 180) {
-            x = image.width - ((image.width * x1) / previewSize.width)
-            y = image.height - ((image.width * y1) / previewSize.width)
+            x = (image.width - ((image.width * x1) / previewSize.width)).toInt()
+            y = (image.height - ((image.width * y1) / previewSize.width)).toInt()
         } else if (rotationDegrees == 270) {
-            x = image.width - ((image.width * y1) / previewSize.height)
-            y = (image.height * x1) / previewSize.width
+            x = (image.width - ((image.width * y1) / previewSize.height)).toInt()
+            y = ((image.height * x1) / previewSize.width).toInt()
         } else {
-            x = (image.width * x1) / previewSize.width
-            y = (image.width * y1) / previewSize.width
+            x = ((image.width * x1) / previewSize.width).toInt()
+            y = ((image.width * y1) / previewSize.width).toInt()
         }
         val w = 24
         val h = 24
@@ -159,7 +158,7 @@ class ImageAnalyser(
                 //var nameColour = colour.getColorNameFromRgb(swatch.rgb.red,swatch.rgb.green,swatch.rgb.blue)
                 //val nameColour = colour.getColorNameFromHsl(swatch?.hsl[0], swatch?.hsl[1], swatch?.hsl[2])
                 val nameColour = colour.getColourName(bgColor.red, bgColor.green, bgColor.blue, swatch?.hsl)
-                Log.d("ImageAnalyser", "Text Color: $textColor, Bg Color: $bgColor, Colour: $nameColour")
+                Log.d("ImageAnalyser", "Text Color: $textColor, Bg Color: ${bgColor.toUInt().toString(16)} , Colour: $nameColour")
                 textOverlay.setTextColor(textColor)
                 textOverlay.setBackgroundColor(bgColor)
                 textOverlay.setText(nameColour)

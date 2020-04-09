@@ -1,5 +1,6 @@
 package com.arynchoong.ccolour
 
+import android.util.Log
 import com.arynchoong.ccolour.colours.*
 
 /**
@@ -17,19 +18,20 @@ class ColourAnalyser {
         var colour: String
         if (r < 35 && g < 35 && b < 35) {
             colour = "Black"
-            colourList = ColourBlack()
-            colour = colourList.getColorNameFromHsl(hsl[0], hsl[1], hsl[2])
+            Log.d("ColourAnalyser", "R:$r G:$g B:$b")
+/*            colourList = ColourBlack()
+            colour = colourList.getColorNameFromHsl(hsl[0], hsl[1], hsl[2])*/
         } else if (r > 250 && g > 250 && b > 250){
             colour = "White"
-            colourList = ColourWhite()
-            colour = colourList.getColorNameFromHsl(hsl[0], hsl[1], hsl[2])
-        } else if ((-10 < (r - b) && (r - b)  < 10) && (-10 < (g - b) && (g - b)  < 10) && (-10 < (r - g) && (r - g)  < 10)) {
+/*            colourList = ColourWhite()
+            colour = colourList.getColorNameFromHsl(hsl[0], hsl[1], hsl[2])*/
+        } else if ((-5 < (r - b) && (r - b)  < 5) && (-5 < (g - b) && (g - b)  < 5) && (-5 < (r - g) && (r - g)  < 5)) {
             colour = "Grey"
-            colourList = ColourGrey()
-            colour = colourList.getColorNameFromHsl(hsl[0], hsl[1], hsl[2])
+/*            colourList = ColourGrey()
+            colour = colourList.getColorNameFromHsl(hsl[0], hsl[1], hsl[2])*/
         }
         else {
-            colourList = ColourDesc()
+            colourList = ColourHue()
             colour = colourList.getColorNameFromHsl(hsl[0], hsl[1], hsl[2])
         }
         return colour
