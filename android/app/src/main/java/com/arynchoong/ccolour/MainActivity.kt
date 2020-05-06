@@ -2,7 +2,7 @@ package com.arynchoong.ccolour
 
 import android.Manifest
 import android.content.pm.PackageManager
-import android.graphics.*
+import android.graphics.Matrix
 import android.os.Bundle
 import android.util.Log
 import android.util.Size
@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         textOverlay = findViewById(R.id.text_overlay)
         fab = findViewById(R.id.fab)
         imageView = findViewById(R.id.imgFocus)
+        hintSnack = Snackbar.make(viewFinder, "Tap screen to show colour.", Snackbar.LENGTH_INDEFINITE)
 
         // Request camera permissions
         if (allPermissionsGranted()) {
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
             updateTransform()
         }
         // Setup ViewFinder onTouchListener
-        viewFinder.setOnTouchListener { v, event ->
+        viewFinder.setOnTouchListener { _, event ->
             val action = event.action
             if (action == MotionEvent.ACTION_DOWN) {
                 // Set textOverlay top and left
@@ -61,12 +62,12 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
                 imageView.visibility = ImageView.VISIBLE
 
                 Log.d("CColour","x: " + textOverlay.x.toString() + " y: " + textOverlay.y.toString())
+                hintSnack.dismiss()
             }
             false
         }
 
-        Snackbar.make(viewFinder, "Tap screen for colour name.", Snackbar.LENGTH_LONG )
-            .setAction("Action", null).show()
+        hintSnack.show()
     }
 
     private val executor = Executors.newSingleThreadExecutor()
@@ -74,6 +75,7 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
     private lateinit var textOverlay: TextView
     private lateinit var fab: FloatingActionButton
     private lateinit var imageView: ImageView
+    private lateinit var hintSnack: Snackbar
     lateinit var analyzerUseCase: ImageAnalysis
     var lastTouchDownXY = FloatArray(2)
 
